@@ -1,37 +1,64 @@
 package main
 
-import "fmt"
-
-func normalFunction(message string) {
-	fmt.Println(message)
-}
-
-func tripeArgumentFunction(message string, a, b int) {
-	fmt.Println(message, a, b)
-}
-
-func returnValue(a int, b int) int {
-	return (a + b) * 2
-}
-
-func doubleReturnValue(a int) (int, int) {
-	return a, a * 2
-}
-
 func main() {
-	//  Funciones
-	fmt.Println("Funciones")
-	normalFunction("Hola Mundo")
-	tripeArgumentFunction("Hola Mundo", 1, 2)
-	fmt.Println(returnValue(1, 2))
-	fmt.Println(doubleReturnValue(2))
 
-	// Funciones anónimas que retorna 2 valores
-	value1, value2 := doubleReturnValue(2)
-	fmt.Println(value1, value2)
+	// For loop with single condition
+	for i := 0; i <= 10; i++ {
+		println(i)
+	}
 
-	//  Funciones anónimas que extrae 1 solo valor donde retorna 2 valores
-	value3, _ := doubleReturnValue(3)
-	fmt.Println(value3)
+	// For loop with multiple conditions
+	for i, j := 0, 10; i <= 10 && j >= 0; i, j = i+1, j-1 {
+		println(i, j)
+	}
 
+	// For while loop
+	i := 0
+	for i <= 10 {
+		println(i)
+		i++
+	}
+
+	// For loop with break
+	for i := 0; i <= 10; i++ {
+		if i == 5 {
+			break
+		}
+		println(i)
+	}
+
+	// For loop with continue
+	for i := 0; i <= 10; i++ {
+		if i == 5 {
+			continue
+		}
+		println(i)
+
+	}
+
+	// For loop with labels
+Loop:
+	for i := 0; i <= 10; i++ {
+		for j := 0; j <= 10; j++ {
+			if i == 5 && j == 5 {
+				break Loop
+			}
+			println(i, j)
+		}
+	}
+
+	// For loop with range
+	for i, j := range []int{1, 2, 3, 4, 5} {
+		println(i, j)
+	}
+
+	// For loop with range and _
+	for _, j := range []int{1, 2, 3, 4, 5} {
+		println(j)
+	}
+
+	// for forever loop
+	for {
+		println("forever")
+	}
 }
