@@ -2,30 +2,36 @@ package main
 
 import "fmt"
 
-func main() {
-
-	// declare a variable
-	helloMessage := "Hello"
-	worldMessage := "World!"
-
-	// print the variable
-
-	// println	- print with a new line
-	fmt.Println(helloMessage, worldMessage)
-	fmt.Println(helloMessage, worldMessage)
-
-	// printf	- print with a format
-	nombre := "Juan"
-	edad := 20
-	fmt.Printf("Hola, mi nombre es %s y tengo %d añosa\n", nombre, edad)
-	fmt.Printf("Hola, mi nombre es %v y tengo %v añosa\n", nombre, edad)
-
-	// Sprintf	- print with a format and return a string
-	message := fmt.Sprintf("Hola, mi nombre es %s y tengo %d añosa", nombre, edad)
+func normalFunction(message string) {
 	fmt.Println(message)
+}
 
-	//  tipos de datos
-	fmt.Printf("helloMessage: %T\n", helloMessage)
-	fmt.Printf("edad: %T\n", edad)
+func tripeArgumentFunction(message string, a, b int) {
+	fmt.Println(message, a, b)
+}
+
+func returnValue(a int, b int) int {
+	return (a + b) * 2
+}
+
+func doubleReturnValue(a int) (int, int) {
+	return a, a * 2
+}
+
+func main() {
+	//  Funciones
+	fmt.Println("Funciones")
+	normalFunction("Hola Mundo")
+	tripeArgumentFunction("Hola Mundo", 1, 2)
+	fmt.Println(returnValue(1, 2))
+	fmt.Println(doubleReturnValue(2))
+
+	// Funciones anónimas que retorna 2 valores
+	value1, value2 := doubleReturnValue(2)
+	fmt.Println(value1, value2)
+
+	//  Funciones anónimas que extrae 1 solo valor donde retorna 2 valores
+	value3, _ := doubleReturnValue(3)
+	fmt.Println(value3)
 
 }
