@@ -1,52 +1,39 @@
 package main
 
-import (
-	"log"
-	"strconv"
-)
+import "fmt"
 
 func main() {
 
-	// condicional if
+	// Array
+	var arr [5]int
+	arr[0] = 1
+	arr[1] = 2
+	arr[2] = 3
+	arr[3] = 4
+	arr[4] = 5
+	fmt.Println(arr)
 
-	valor := 20
+	// Slice
 
-	if valor == 10 {
-		println("El valor es 10")
-	}
+	slice := []int{1, 2, 3, 4, 5}
+	fmt.Println(slice, len(slice), cap(slice))
 
-	if valor := 10; valor == 10 {
-		println("El valor es 10")
-	}
+	// Slice with make
+	slice2 := make([]int, 5, 10)
+	fmt.Println(slice2, len(slice2), cap(slice2))
 
-	// condicional switch
+	// Slice with append
+	slice3 := append(slice2, 1, 2, 3, 4, 5)
+	fmt.Println(slice3, len(slice3), cap(slice3))
 
-	switch valor {
-	case 10:
-		println("El valor es 10")
-	case 20:
-		println("El valor es 20")
-	default:
-		println("El valor es otro")
-	}
+	// Slice with append and make
+	slice4 := make([]int, 0, 5)
+	slice4 = append(slice4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+	fmt.Println(slice4, len(slice4), cap(slice4))
 
-	// condicional  with  and	& or
-
-	if valor > 10 && valor < 30 {
-		println("El valor es mayor a 10 y menor a 30")
-	}
-
-	if valor > 10 || valor < 30 {
-		println("El valor es mayor a 10 o menor a 30")
-	}
-
-	// convertir texto a numero
-	value, err := strconv.Atoi("213123")
-	if err != nil {
-		println("Error al convertir")
-		log.Fatal(err)
-	} else {
-		println(value)
-	}
+	// Slice with append  list
+	new_slice := []int{20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}
+	slice5 := append(new_slice, slice4...)
+	fmt.Println(slice5, len(slice5), cap(slice5))
 
 }
