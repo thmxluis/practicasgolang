@@ -1,38 +1,22 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
-
-func isPalindromo(palindromo string) string {
-	palindromo = strings.ToLower(palindromo)
-	for i := 0; i < len(palindromo)/2; i++ {
-		if palindromo[i] != palindromo[len(palindromo)-1-i] {
-			return "No es palindromo"
-		}
-	}
-	return "Es un palindromo"
-}
+import "fmt"
 
 func main() {
 
-	// Slice with range
-	slice := []string{"hola", "que", "tal"}
+	m := make(map[string]int)
 
-	//
-	for i, v := range slice {
-		fmt.Println(i, v)
-	}
-	for _, v := range slice {
-		fmt.Println(v)
-	}
-	for i := range slice {
-		fmt.Println(i)
+	m["jose"] = 14
+	m["pepito"] = 20
+	fmt.Println(m)
+
+	// Recorrer el map
+	for k, v := range m {
+		fmt.Println(k, v)
 	}
 
-	// Palindromo
-	palindromo := "Ama"
-	fmt.Println(isPalindromo(palindromo))
+	// Encontrar un valor
+	v, ok := m["jose"]
+	fmt.Println(v, ok)
 
 }
